@@ -20,4 +20,6 @@
   file:
     name: /var/osquery/syslog_pipe
     group: syslog
+  notify:
+    - Restart rsyslogd
   when: ansible_distribution == 'Ubuntu'
