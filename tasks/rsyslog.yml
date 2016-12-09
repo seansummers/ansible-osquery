@@ -16,3 +16,8 @@
   notify:
     - Restart rsyslogd
 
+- name: rsyslog | osquery pipe ownership
+  file:
+    name: /var/osquery/syslog_pipe
+    group: syslog
+  when: {{ ansible_distribution }} == 'Ubuntu'
