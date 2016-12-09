@@ -1,0 +1,2 @@
+--disable_events=false
+--enable_syslog=true

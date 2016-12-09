@@ -1,0 +1,18 @@
+---
+- name: rsyslog | osquery config
+  copy:
+    src: "{{item}}"
+    dest: "/{{item}}"
+    force: yes
+  with_items:
+    - etc/rsyslog.d/99-osquery.conf
+  notify:
+    - Restart rsyslogd
+
+- name: rsyslog | osquery pipe
+  command: mkfifo -m 0460 /var/osquery/syslog_pipe
+  args:
+    creates: /var/osquery/syslog_pipe
+  notify:
+    - Restart rsyslogd
+

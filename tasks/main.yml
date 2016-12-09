@@ -1,0 +1,32 @@
+---
+- name: osquery | ansible setup
+  setup:
+  when: ansible_pkg_mgr is undefined
+
+- name: osquery | setup repo
+  include: '{{ ansible_pkg_mgr }}.yml'
+
+- name: osquery | install package
+  package:
+    name: '{{ osquery_package }}'
+    state: latest
+
+- name: osquery | config
+  copy:
+    src: "{{item}}"
+    dest: "/{{item}}"
+    force: yes
+  with_items:
+    - etc/osquery/osquery.conf
+    - etc/osquery/osquery.flags
+  notify:
+    - Restart osqueryd
+
+- name: osquery | setup rsyslog
+  include: rsyslog.yml
+
+- name: osquery | osqueryd enable
+  service:
+    name: osqueryd
+    enabled: yes
+    state: started

@@ -1,0 +1,14 @@
+---
+- name: Restart rsyslogd
+  service:
+    name: rsyslogd
+    state: reloaded
+    enabled: yes
+  become: yes
+
+- name: Restart osqueryd
+  service:
+    name: osqueryd
+    state: restarted
+    enabled: yes
+  become: yes

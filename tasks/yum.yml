@@ -1,0 +1,23 @@
+---
+- name: yum | systemd or sysvinit
+  shell: type -p init | grep -q '^/usr/sbin/init'
+  become: no
+  changed_when: no
+  failed_when: no
+  ignore_errors:  yes
+  register: systemd_or_initv
+
+- name: yum | systemd repo
+  include_vars: yum-systemd.yml
+  when: systemd_or_initv.rc == 0
+
+- name: yum | sysvinit repo
+  include_vars: yum-systemv.yml
+  when: systemd_or_initv.rc == 1
+
+- name: yum | install and update repo
+  yum:
+    name: '{{ osquery_repo_rpm }}'
+    state: present
+    update_cache: yes
+
