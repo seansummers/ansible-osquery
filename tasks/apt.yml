@@ -2,15 +2,14 @@
 - name: apt | repo
   include_vars: 'apt-{{ ansible_distribution_release }}.yml'
 
-- name: apt | install and update repo
-  apt_repository:
-    repo: '{{ osquery_repo }}'
-    state: present
-    update_cache: yes
-
 - apt_key:
     keyserver: '{{ osquery_keyserver }}'
     id: '{{ osquery_key }}'
     state: present
 
+- name: apt | install and update repo
+  apt_repository:
+    repo: '{{ osquery_repo }}'
+    state: present
+    update_cache: yes
 
