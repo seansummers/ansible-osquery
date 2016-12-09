@@ -3,3 +3,4 @@ osquery_key: 1484120AC4E9F8A1A577AEEE97A80C63C9D8B80B
 osquery_keyserver: keyserver.ubuntu.com
 osquery_package: osquery
 osquery_repo: deb [arch=amd64] https://osquery-packages.s3.amazonaws.com/trusty trusty main
+rsyslog_service: rsyslog

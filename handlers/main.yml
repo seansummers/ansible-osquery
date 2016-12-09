@@ -1,7 +1,7 @@
 ---
 - name: Restart rsyslogd
   service:
-    name: rsyslogd
+    name: '{{ rsyslog_service }}'
     state: reloaded
     enabled: yes
   become: yes
