@@ -20,4 +20,4 @@
   file:
     name: /var/osquery/syslog_pipe
     group: syslog
-  when: {{ ansible_distribution }} == 'Ubuntu'
+  when: ansible_distribution == 'Ubuntu'
