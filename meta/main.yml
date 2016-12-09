@@ -11,34 +11,11 @@ galaxy_info:
   - name: Amazon
     versions:
     - all
-  #- name: Ubuntu
-  #  versions:
-  #  - all
-  #  - lucid
-  #  - maverick
-  #  - natty
-  #  - oneiric
-  #  - precise
-  #  - quantal
-  #  - raring
-  #  - saucy
-  #  - trusty
-  #  - utopic
-  #  - vivid
-  #  - wily
-  #  - xenial
-  #  - yakkety
-  #- name: Debian
-  #  versions:
-  #  - all
-  #  - etch
-  #  - jessie
-  #  - lenny
-  #  - sid
-  #  - squeeze
-  #  - stretch
-  #  - wheezy
-
+  - name: Ubuntu
+    versions:
+    - precise
+    - trusty
+    - xenial
   galaxy_tags:
   - monitoring
   - system
